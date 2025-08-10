@@ -180,7 +180,7 @@ def take_chat_screenshot(page: Page) -> str | None:
                     except:
                         continue
         
-        # If no specific chat widget found, take a more targeted crop
+        # If no specific chat widget found, take a more targeted crop - optimized version
         timestamp = int(time.time())
         screenshot_path = f"chat_screenshot_{timestamp}.png"
         
@@ -190,24 +190,18 @@ def take_chat_screenshot(page: Page) -> str | None:
         from PIL import Image
         import io
         
-        # Load the full screenshot
         img = Image.open(io.BytesIO(full_screenshot))
         width, height = img.size
         
         # Based on typical chat widget placement, crop a more specific area
-        # Usually chat widgets are in the bottom right, taking about 350-400px width
         chat_width = 380
-        chat_height = min(600, height - 100)  # Leave some margin at top
+        chat_height = min(600, height - 100)
         
         # Position: bottom right corner with some padding
-        left = width - chat_width - 20  # 20px padding from right edge
-        top = height - chat_height - 20   # 20px padding from bottom
+        left = max(0, width - chat_width - 20)
+        top = max(0, height - chat_height - 20)
         right = width - 20
         bottom = height - 20
-        
-        # Ensure bounds are valid
-        left = max(0, left)
-        top = max(0, top)
         
         # Crop the image to the chat area
         chat_img = img.crop((left, top, right, bottom))
@@ -215,7 +209,6 @@ def take_chat_screenshot(page: Page) -> str | None:
         # Save the cropped image
         chat_img.save(screenshot_path)
         
-        # Convert to base64
         buffer = io.BytesIO()
         chat_img.save(buffer, format='PNG')
         screenshot_bytes = buffer.getvalue()

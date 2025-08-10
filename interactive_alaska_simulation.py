@@ -363,7 +363,7 @@ def take_chat_screenshot(page: Page) -> str | None:
                     except:
                         continue
         
-        # Fallback to cropped screenshot
+        # Fallback to cropped screenshot - optimized version
         timestamp = int(time.time())
         screenshot_path = f"chat_screenshot_{timestamp}.png"
         
