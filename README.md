@@ -1,74 +1,68 @@
-# Alaska Airlines Chat Simulation System
+# Sim2RL: AI-Powered Simulation Agents for Reinforcement Learning
 
-An interactive system for testing customer service chatbots using automated persona-based simulations.
+*Generate realistic user personas for training conversational AI agents through advanced simulation and reinforcement learning*
 
-## Features
+## 🚀 Overview
 
-- **Interactive Persona Generation**: Uses OpenAI's Responses API with web search to generate realistic customer personas
-- **Automated Sim Agent Creation**: Creates simulation agents in Scorecard AI with structured prompts
-- **Dynamic Testcase Generation**: Generates relevant test scenarios for each persona
-- **Screenshot Capture**: Takes screenshots during chat interactions for visual verification
-- **Scorecard AI Integration**: Runs automated simulations and tracks results
+Sim2RL bridges the gap between AI evaluation and reinforcement learning by automatically generating authentic user personas that act as dynamic training environments. Instead of static test scripts, we create intelligent simulation agents that research real-world behaviors and adapt their interactions based on actual user patterns.
 
-## Setup
+## ⚡ Key Features
 
-1. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
+- **Autonomous Persona Research**: AI agents automatically discover and synthesize real user behaviors from web data
+- **Dynamic Simulation Environments**: Personas evolve and adapt during conversations, creating realistic training scenarios
+- **Multi-Modal RL Training Data**: Captures both conversational text and visual interface states for comprehensive agent training
+- **Real-World Integration**: Test against live production systems while generating training data
+- **Continuous Learning Pipeline**: Simulation results feed directly into RL training loops for autonomous improvement
 
-2. **Install Playwright browsers:**
-   ```bash
-   playwright install
-   ```
-
-3. **Set up environment variables:**
-   Copy `.env.example` to `.env` and fill in your API keys:
-   ```bash
-   cp .env.example .env
-   ```
-   
-   Edit `.env` with your actual keys:
-   ```
-   SCORECARD_API_KEY=your_scorecard_api_key_here
-   OPENAI_API_KEY=your_openai_api_key_here  
-   PROJECT_ID=your_scorecard_project_id_here
-   ```
-
-## Usage
-
-Run the interactive simulation:
+## 🛠 Quick Start
 
 ```bash
+# Setup environment
+pip install -r requirements.txt
+playwright install
+
+# Configure API keys
+cp .env.example .env
+# Edit .env with your keys
+
+# Launch interactive persona generator
 python interactive_alaska_simulation.py
 ```
 
-The script will:
-1. Ask you to describe a customer persona (e.g., "frustrated frequent flyer")
-2. Research and generate realistic simulation scenarios
-3. Create a new sim agent and testset in Scorecard
-4. Run the simulation against Alaska Airlines' chat system
-5. Provide a link to view results
+## 🎯 How It Works
 
-## Files
+1. **Persona Genesis**: Describe a user type → AI researches real behaviors → Creates authentic simulation agent
+2. **Live Simulation**: Autonomous agents interact with target systems while capturing multi-modal training data
+3. **RL Pipeline**: Conversation outcomes become reward signals for continuous policy improvement
+4. **Performance Analytics**: Visual conversation analysis reveals agent strengths and failure modes
 
-- `interactive_alaska_simulation.py` - Main interactive simulation script
-- `run_alaska_simulation.py` - Direct Alaska Airlines simulation script
-- `get_sim_agent.py` - Utility to inspect existing sim agents
-- `get_testset.py` - Utility to inspect existing testsets
+## 📊 Applications
 
-## Architecture
+- **Customer Service AI Training**: Generate diverse customer personas for chatbot improvement
+- **Conversational AI Evaluation**: Test dialogue systems against realistic user behaviors  
+- **Policy Optimization**: Use simulation data to train better RL policies
+- **Risk Mitigation**: Discover edge cases before production deployment
 
-The system uses:
-- **OpenAI Responses API** with web search for persona research and content generation
-- **Pydantic models** for structured output validation
-- **Playwright** for browser automation and screenshot capture
-- **Scorecard AI** for simulation management and result tracking
+## 🏗 Architecture
 
-## Example Personas
+Built with cutting-edge AI infrastructure:
+- OpenAI GPT-5 with web search for persona research
+- Scorecard AI for simulation orchestration
+- Playwright for real-world system integration
+- Structured outputs via Pydantic for reliable data flows
 
-- "frustrated frequent flyer"
-- "confused elderly passenger" 
-- "business traveler in a hurry"
-- "family with young children"
-- "price-conscious budget traveler"
+## 📁 Project Structure
+
+- `interactive_alaska_simulation.py` - Main persona generator and simulation runner
+- `run_alaska_simulation.py` - Direct simulation execution framework
+- `get_sim_agent.py` - Simulation agent introspection utilities
+- `get_testset.py` - Training dataset analysis tools
+
+## 🎭 Example Personas
+
+Transform simple descriptions into intelligent simulation agents:
+- "frustrated frequent flyer" → Research actual airline complaints → Generate realistic customer behavior
+- "confused elderly passenger" → Study accessibility issues → Create authentic interaction patterns
+- "business traveler in a hurry" → Analyze time-pressure scenarios → Simulate urgent conversation dynamics
+
+Transform your AI training from static scripts to dynamic, intelligent simulation environments.
